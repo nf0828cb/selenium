@@ -28,9 +28,9 @@ public class Main {
 //		演習２
 //		driver.get("https://rakuplus.jp/");
 //		WebElement element3 = driver.findElement(By.name("log"));
-//		element3.sendKeys("natsumi.fujimoto@rakus-partners.co.jp");
+//		element3.sendKeys("");
 //		WebElement element4 = driver.findElement(By.name("pwd"));
-//		element4.sendKeys("natsumi.fujimoto@rakus-partners.co.jp");
+//		element4.sendKeys("");
 //		
 //		element4.sendKeys(Keys.ENTER);
 //		
