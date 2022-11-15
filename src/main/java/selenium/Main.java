@@ -28,37 +28,57 @@ public class Main {
 //		演習２
 		driver.get("https://rakuplus.jp/");
 		WebElement element3 = driver.findElement(By.name("log"));
-		element3.sendKeys("natsumi.fujimoto@rakus-partners.co.jp");
+		element3.sendKeys("");
 		WebElement element4 = driver.findElement(By.name("pwd"));
-		element4.sendKeys("natsumi.fujimoto@rakus-partners.co.jp");
+		element4.sendKeys("");
 		
 		element4.sendKeys(Keys.ENTER);
+		
 		driver.get("https://rakuplus.jp/archives/11203");
 		
-//		名前（漢字）
-		System.out.println("---漢字---");
-		List<WebElement> elementsName1 = driver.findElements(By.className("big"));
-		for(int i = 0;i < 12;i++) {
-			WebElement name = elementsName1.get(i);
-			System.out.println(name.getText());
-		}
-		System.out.println();
+////		名前（漢字）
+//		System.out.println("---漢字---");
+//		List<WebElement> elementsName1 = driver.findElements(By.className("big"));
+//		for(int i = 0;i < 12;i++) {
+//			WebElement name = elementsName1.get(i);
+//			System.out.println(name.getText());
+//		}
+//		System.out.println();
 //		名前（ひらがな）
-		System.out.println("---ひらがな---");
-		List<WebElement> elementsName2 = driver.findElements(By.className("has-text-color"));
-		for(int i = 0;i < 13;i++) {
-			WebElement name2 = elementsName2.get(i);
-			System.out.println(name2.getText());
-		}
-		
+//		System.out.println("---ひらがな---");
+//		List<WebElement> elementsName2 = driver.findElements(By.cssSelector("p.has-text-align-center.has-text-color"));
+//		for(int i = 0;i < 13;i++) {
+//			WebElement name2 = elementsName2.get(i);
+//			System.out.println(name2.getText());
+//		}
+//		
 //		写真のURL
+//		List<WebElement> photoUrl = driver.findElements(By.className("wp-block-image"));
+//		for(int i = 0;i < 13;i++) {
+//			WebElement photourl = photoUrl.get(i);
+//			System.out.println(photourl.);
+//	}
 		
-		for(int i = 0;i < 13;i++) {
-			driver.get("https://rakuplus.jp/archives/11203#group=nogroup&photo=[i]");
-			System.out.println(driver.getCurrentUrl());
-	
-	}
+		List<WebElement> divElemList = driver.findElements(By.cssSelector("section.entry-content > div"));
+		int count = 0;
+		for(WebElement elem : divElemList) {
+			
+			if(count > 0) {
+			
+			WebElement kName = elem.findElement(By.className("big"));
+			System.out.println(kName.getText());
+			
+			WebElement hName = elem.findElement(By.className("has-text-color"));
+			System.out.println(hName.getText());
+			
+			WebElement imgElem = elem.findElement(By.tagName("img"));
+			String url = imgElem.getAttribute("src");
+			System.out.println(url);
+		}
+			count ++;
+		}
+		}
 }
-}
+
 
 
